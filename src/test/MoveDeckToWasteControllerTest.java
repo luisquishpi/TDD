@@ -32,7 +32,7 @@ public class MoveDeckToWasteControllerTest {
     @Test
     public void moveFullDeckToEmptyWasteTest(){
         moveDeckToWasteController.move();
-        assertEquals(3, board.getWaste().size());
+        assertEquals(3, moveDeckToWasteController.getBoard().getWaste().size());
     }
 
 }
