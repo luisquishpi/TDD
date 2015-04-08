@@ -18,5 +18,17 @@ public class StartControllerTest {
     public void isEmptyWaste() {
         assertTrue(startController.isEmptyWaste());
     }
+    @Test
+    public void is24CardsInDeck() {
+        assertEquals(24, startController.getTotalCardsInDeck());
+    }
+    @Test
+    public void isEmptyFoundation(){
+        assertTrue(startController.isEmptyFoundation());
+    }
+    @Test
+    public void is28CardsInTableou(){
+        assertEquals(28, startController.getTotalCardsInTableou());
+    }
 
 }

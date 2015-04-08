@@ -6,7 +6,7 @@ import java.util.List;
 public class MoveDeckToWasteController {
 
     private Board board;
-    List<Card> wastes;
+    List<Card> waste;
     public MoveDeckToWasteController(){
         
     }
@@ -24,11 +24,11 @@ public class MoveDeckToWasteController {
         this.board = board;
     }
     public void move() {
-        wastes=new ArrayList<Card>();
-        wastes.add(new Card());
-        wastes.add(new Card());
-        wastes.add(new Card());
-        board.setWaste(wastes);
+        waste=new ArrayList<Card>();
+        waste.add(new Card());
+        waste.add(new Card());
+        waste.add(new Card());
+        board.setWaste(waste);
     }
    
 

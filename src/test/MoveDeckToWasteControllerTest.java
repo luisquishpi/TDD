@@ -14,11 +14,12 @@ import org.junit.Test;
 public class MoveDeckToWasteControllerTest {
 
     private MoveDeckToWasteController moveDeckToWasteController;
+
     Board board;
-    
+
     @Before
     public void before() {
-        board =new Board();
+        board = new Board();
         List<Card> cards = null;
         board.setDeck(cards);
         moveDeckToWasteController = new MoveDeckToWasteController(board);
@@ -29,10 +30,17 @@ public class MoveDeckToWasteControllerTest {
         Card card = new Card();
         assertTrue(moveDeckToWasteController.isMovedDeckToWaste(card));
     }
+
     @Test
-    public void moveFullDeckToEmptyWasteTest(){
+    public void moveFullDeckToEmptyWasteTest() {
         moveDeckToWasteController.move();
         assertEquals(3, moveDeckToWasteController.getBoard().getWaste().size());
+    }
+
+    @Test
+    public void moveWhen1DeckToEmptyWasteTest() {
+        moveDeckToWasteController.move();
+        assertEquals(1, moveDeckToWasteController.getBoard().getWaste().size());
     }
 
 }
