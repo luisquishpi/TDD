@@ -6,6 +6,7 @@ import java.util.List;
 
 import klondike.Board;
 import klondike.Card;
+import klondike.CardType;
 import klondike.MoveDeckToWasteController;
 
 import org.junit.Before;
@@ -27,7 +28,7 @@ public class MoveDeckToWasteControllerTest {
 
     @Test
     public void isMovedDeckToWasteTest() {
-        Card card = new Card();
+        Card card = new Card(1,false,CardType.CORAZON);
         assertTrue(moveDeckToWasteController.isMovedDeckToWaste(card));
     }
 

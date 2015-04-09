@@ -4,18 +4,20 @@ import java.util.List;
 
 public class Tableou {
 
-    private List<Card> tableou;
+    private List<Card> listCard;
 
-    public Tableou(List<Card> tableou) {
-        this.tableou = tableou;
+    public Tableou(List<Card> listCard) {
+        this.listCard=listCard;
     }
 
-    public List<Card> getTableou() {
-        return tableou;
+    public List<Card> getListCard() {
+        return listCard;
     }
 
-    public void setTableou(List<Card> tableou) {
-        this.tableou = tableou;
+    public void setListCard(List<Card> listCard) {
+        this.listCard = listCard;
     }
+
+    
 
 }

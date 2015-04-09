@@ -18,7 +18,7 @@ public class StartController {
         return board.getTotalCardsInTableou();
     }
     public int getTotalCardsInDeck() {
-        return 24;
+        return board.getTotalCardsInDeck();
     }
 
 }

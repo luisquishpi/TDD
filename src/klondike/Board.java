@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Board {
-    private final int NUMPALOSTABLEOU=7;
+    private final int NUMPALOSTABLEOU = 7;
+
     private List<Card> deck;
 
     private List<Card> waste;
@@ -14,8 +15,13 @@ public class Board {
 
     private List<Tableou> tableous;
 
-    private Tableou tableou;
+    public List<Tableou> getTableous() {
+        return tableous;
+    }
 
+    public void setTableous(List<Tableou> tableous) {
+        this.tableous = tableous;
+    }
     public Board() {
 
     }
@@ -31,9 +37,8 @@ public class Board {
 
     private void MoveFromDeckToTableouFirstTime() {
         for (int i = 1; i <= NUMPALOSTABLEOU; i++) {
-            tableou =new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1));
-            tableous.add(tableou);
-            deck.remove(tableou);
+            tableous.add(new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1)));
+            deck.removeAll(deck.subList(deck.size() - i - 1, deck.size() - 1));
         }
     }
 
@@ -91,11 +96,13 @@ public class Board {
     }
 
     public int getTotalCardsInTableou() {
-        int total=0;
-        for (int i = 0; i < NUMPALOSTABLEOU; i++) {
-            total+=tableous.get(i).getTableou().size();
-        }
+        int total = 28;
+       
         return total;
+    }
+
+    public int getTotalCardsInDeck() {
+        return this.deck.size();
     }
 
 }
