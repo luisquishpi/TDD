@@ -11,14 +11,14 @@ public class StartController {
     public boolean isEmptyWaste() {
         return board.isEmptyWaste();
     }
-    public int getTotalCardsInDeck() {
-        return 24;
-    }
     public boolean isEmptyFoundation() {
         return board.isEmptyFoundation();
     }
     public int getTotalCardsInTableou() {
         return 28;
+    }
+    public int getTotalCardsInDeck() {
+        return 24;
     }
 
 }

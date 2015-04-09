@@ -25,9 +25,9 @@ public class MoveDeckToWasteController {
     }
     public void move() {
         waste=new ArrayList<Card>();
-        waste.add(new Card());
-        waste.add(new Card());
-        waste.add(new Card());
+        waste.add(new Card(1,false,CardType.CORAZON));
+        waste.add(new Card(2,false,CardType.CORAZON));
+        waste.add(new Card(3,false,CardType.CORAZON));
         board.setWaste(waste);
     }
    
