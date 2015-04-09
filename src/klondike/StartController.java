@@ -15,7 +15,7 @@ public class StartController {
         return 24;
     }
     public boolean isEmptyFoundation() {
-        return true;
+        return board.isEmptyFoundation();
     }
     public int getTotalCardsInTableou() {
         return 28;
