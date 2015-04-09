@@ -11,7 +11,9 @@ public class Board {
 
     private List<Foundation> foundations;
 
-    private List<Tableou> Tableous;
+    private List<Tableou> tableous;
+
+    private Tableou tableou;
 
     public Board() {
 
@@ -21,26 +23,46 @@ public class Board {
         deck = new ArrayList<Card>();
         waste = new ArrayList<Card>();
         foundations = new ArrayList<Foundation>();
-        Tableous = new ArrayList<Tableou>();
+        tableous = new ArrayList<Tableou>();
         this.Fill52CardsInDeck();
+        this.MoveFromDeckToTableouFirstTime();
     }
 
-   
+    private void MoveFromDeckToTableouFirstTime() {
+        for (int i = 1; i <= 7; i++) {
+            tableou =new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1));
+            tableous.add(tableou);
+            deck.remove(tableou);
+        }
+    }
+
     private void Fill52CardsInDeck() {
-        int numero=1;
-        int iteracion=1;
+        int numero = 1;
+        int iteracion = 1;
         for (int i = 0; i < 52; i++) {
-            if(iteracion==1) deck.add(new Card(numero,false,CardType.CORAZON));
-            if(iteracion==2) deck.add(new Card(numero,false,CardType.DIAMENTE));
-            if(iteracion==3) deck.add(new Card(numero,false,CardType.PICA));
-            if(iteracion==4) deck.add(new Card(numero,false,CardType.TREBOL));
-            if(numero==13) {
-                numero=1;
+            if (iteracion == 1)
+                deck.add(new Card(numero, false, CardType.CORAZON));
+            if (iteracion == 2)
+                deck.add(new Card(numero, false, CardType.DIAMENTE));
+            if (iteracion == 3)
+                deck.add(new Card(numero, false, CardType.PICA));
+            if (iteracion == 4)
+                deck.add(new Card(numero, false, CardType.TREBOL));
+            if (numero == 13) {
+                numero = 1;
                 iteracion++;
-            }
-            else numero++;
+            } else
+                numero++;
         }
         Collections.shuffle(deck);
+    }
+
+    public boolean isEmptyWaste() {
+        return getWaste().size() == 0 || getWaste() == null;
+    }
+
+    public boolean isEmptyFoundation() {
+        return getFoundations().size() == 0 || getFoundations() == null;
     }
 
     public List<Card> getDeck() {
@@ -59,14 +81,6 @@ public class Board {
         this.waste = waste;
     }
 
-    public boolean isEmptyWaste() {
-        return getWaste().size() == 0 || getWaste() == null;
-    }
-
-    public boolean isEmptyFoundation() {
-        return getFoundations().size() == 0 || getFoundations() == null;
-    }
-
     public List<Foundation> getFoundations() {
         return foundations;
     }
@@ -75,11 +89,4 @@ public class Board {
         this.foundations = foundations;
     }
 
-    public List<Tableou> getTableous() {
-        return Tableous;
-    }
-
-    public void setTableous(List<Tableou> tableous) {
-        Tableous = tableous;
-    }
 }
