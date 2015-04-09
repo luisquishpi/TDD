@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Board {
+    private final int NUMPALOSTABLEOU=7;
     private List<Card> deck;
 
     private List<Card> waste;
@@ -29,7 +30,7 @@ public class Board {
     }
 
     private void MoveFromDeckToTableouFirstTime() {
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i <= NUMPALOSTABLEOU; i++) {
             tableou =new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1));
             tableous.add(tableou);
             deck.remove(tableou);
@@ -87,6 +88,14 @@ public class Board {
 
     public void setFoundations(List<Foundation> foundations) {
         this.foundations = foundations;
+    }
+
+    public int getTotalCardsInTableou() {
+        int total=0;
+        for (int i = 0; i < NUMPALOSTABLEOU; i++) {
+            total+=tableous.get(i).getTableou().size();
+        }
+        return total;
     }
 
 }
