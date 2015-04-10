@@ -37,14 +37,12 @@ public class MoveDeckToWasteControllerTest {
 
     @Test
     public void moveCardsFromDeckToEmptyWasteTest() {
-        // debe mover 3 de una
         moveDeckToWasteController.move();
         assertEquals(3, moveDeckToWasteController.getBoard().getWaste().size());
     }
 
     @Test
     public void moveCardFromDeckToNoEmptyWasteTest() {
-        // debe mover 1 en 1 hasta máximo 3
         card = board.getDeck().get(board.getDeck().size() - 1);
         moveDeckToWasteController.move(card);
         moveDeckToWasteController.move();
