@@ -45,22 +45,20 @@ public class Card {
         return this.getNumber() == card.getNumber() - 1;
     }
 
-    @Override
-    public String toString() {
-        return "Card[" + this.number + "," + this.visible + "," + this.cardType + "]";
-    }
-
     public boolean isEqual(int indexPalo, Card card) {
         return this.cardType == card.cardType;
     }
 
     public boolean isHigh(int indexPalo, Card card) {
-        return this.getNumber()-1 == card.getNumber();
+        return this.getNumber() - 1 == card.getNumber();
     }
 
     public boolean isOtherColor(int indexPalo, Card card) {
-        System.out.println("t1:"+this.cardType+" c2:"+card.cardType);
         return this.cardType != card.cardType;
     }
 
+    @Override
+    public String toString() {
+        return "Card[" + this.number + "," + this.visible + "," + this.cardType + "]";
+    }
 }
