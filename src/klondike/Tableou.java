@@ -3,11 +3,10 @@ package klondike;
 import java.util.List;
 
 public class Tableou {
-
     private List<Card> listCard;
 
     public Tableou(List<Card> listCard) {
-        this.listCard=listCard;
+        this.listCard = listCard;
     }
 
     public List<Card> getListCard() {
@@ -17,7 +16,5 @@ public class Tableou {
     public void setListCard(List<Card> listCard) {
         this.listCard = listCard;
     }
-
-    
 
 }

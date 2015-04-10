@@ -1,17 +1,19 @@
 package klondike;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MoveDeckToWasteController {
 
     private Board board;
     List<Card> waste;
+    List<Card> deck;
     public MoveDeckToWasteController(){
         
     }
     public MoveDeckToWasteController(Board board) {
         this.board=board;
+        waste=board.getWaste();
+        deck=board.getDeck();
     }
 
     public boolean isMovedDeckToWaste(Card card) {
@@ -24,11 +26,22 @@ public class MoveDeckToWasteController {
         this.board = board;
     }
     public void move() {
-        waste=new ArrayList<Card>();
-        waste.add(new Card(1,false,CardType.CORAZON));
-        waste.add(new Card(2,false,CardType.CORAZON));
-        waste.add(new Card(3,false,CardType.CORAZON));
-        board.setWaste(waste);
+        if(waste.isEmpty()){
+            for(int i=1;i<=3;i++){
+                move(deck.get(deck.size()-i));
+            }
+        }
+        else{
+            Card card=new Card();
+            card=board.getDeck().get(board.getDeck().size()-1);
+            move(card);
+        }
+    }
+    public void move(Card card) {
+        if(waste.isEmpty()||waste.size()<3){
+            waste.add(waste.size(), card);
+            deck.remove(card);
+        }
     }
    
 

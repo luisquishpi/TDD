@@ -14,6 +14,9 @@ public class Card {
         setCardType(cardType);
     }
 
+    public Card() {
+    }
+
     public int getNumber() {
         return number;
     }
