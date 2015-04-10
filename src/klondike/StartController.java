@@ -19,5 +19,9 @@ public class StartController {
     public int getTotalCardsInDeck() {
         return board.getTotalCardsInDeck();
     }
+    public void startGame() {
+        board.Fill52CardsInDeck();
+        board.MoveFromDeckToTableouFirstTime();
+    }
 
 }

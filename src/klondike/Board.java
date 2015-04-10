@@ -23,26 +23,24 @@ public class Board {
         this.tableous = tableous;
     }
     public Board() {
-
-    }
-
-    public void startGame() {
         deck = new ArrayList<Card>();
         waste = new ArrayList<Card>();
         foundations = new ArrayList<Foundation>();
         tableous = new ArrayList<Tableou>();
-        this.Fill52CardsInDeck();
-        this.MoveFromDeckToTableouFirstTime();
     }
 
-    private void MoveFromDeckToTableouFirstTime() {
+   
+    public void MoveFromDeckToTableouFirstTime() {
         for (int i = 1; i <= NUMPALOSTABLEOU; i++) {
             tableous.add(new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1)));
+            //System.out.println("tableou:"+tableous.get(i-1).getListCard());
             deck.removeAll(deck.subList(deck.size() - i - 1, deck.size() - 1));
+            // System.out.println("tandeck:"+deck.size());
         }
+        //System.out.println("tableou:" + tableous.get(0));
     }
 
-    private void Fill52CardsInDeck() {
+    public void Fill52CardsInDeck() {
         int numero = 1;
         int iteracion = 1;
         for (int i = 0; i < 52; i++) {
@@ -97,7 +95,6 @@ public class Board {
 
     public int getTotalCardsInTableou() {
         int total = 28;
-       
         return total;
     }
 
