@@ -29,15 +29,12 @@ public class Board {
         tableous = new ArrayList<Tableou>();
     }
 
-   
     public void MoveFromDeckToTableouFirstTime() {
         for (int i = 1; i <= NUMPALOSTABLEOU; i++) {
             tableous.add(new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1)));
-            //System.out.println("tableou:"+tableous.get(i-1).getListCard());
+            tableous.get(i-1).getListCard().get(tableous.get(i-1).getListCard().size()-1).setVisible(true);
             deck.removeAll(deck.subList(deck.size() - i - 1, deck.size() - 1));
-            // System.out.println("tandeck:"+deck.size());
         }
-        //System.out.println("tableou:" + tableous.get(0));
     }
 
     public void Fill52CardsInDeck() {
