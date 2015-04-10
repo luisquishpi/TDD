@@ -17,4 +17,8 @@ public class Tableou {
         this.listCard = listCard;
     }
 
+    public Card getLastCard() {
+        return listCard.get(listCard.size()-1);
+    }
+
 }

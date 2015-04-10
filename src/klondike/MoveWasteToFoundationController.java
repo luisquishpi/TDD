@@ -6,13 +6,15 @@ public class MoveWasteToFoundationController {
     public MoveWasteToFoundationController(Board board) {
         this.board=board;
     }
-    public boolean isLastFoundationCardHigh(int i) {
-        return true;
+    public boolean isLastFoundationCardLow(int indexPalo, Card card) {
+        Card foundationCard=new Card();
+        foundationCard=board.getFoundations().get(indexPalo).getLastCard();
+        return foundationCard.isLow(indexPalo,card);
     }
     public boolean isLastFoundationCardVisible(int indexPalo) {
         return true;
     }
-    public boolean isLastFoundationCardOtherColor(int indexPalo) {
+    public boolean isLastFoundationCardEqualColor(int indexPalo) {
         return true;
     }
     public boolean isMovedWasteCardToFoundation(int indexPalo) {

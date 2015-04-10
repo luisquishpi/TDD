@@ -40,10 +40,14 @@ public class Card {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
+    public boolean isLow(int indexPalo, Card card) {
+        return this.getNumber()<card.getNumber();
+    }
 
     @Override
     public String toString() {
         return "Card[" + this.number + "," + this.visible + "," + this.cardType + "]";
     }
+
 
 }

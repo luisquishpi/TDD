@@ -1,19 +1,27 @@
 package klondike;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Foundation {
-    private List<Card> foundation;
+    private List<Card> listCard;
 
-    public Foundation() {
+    public Foundation(ArrayList<Card> listCard) {
+        this.listCard=listCard;
     }
 
-    public List<Card> getFoundation() {
-        return foundation;
+    public List<Card> getListCard() {
+        return listCard;
     }
 
-    public void setFoundation(List<Card> foundation) {
-        this.foundation = foundation;
+    public void setListCards(List<Card> listCard) {
+        this.listCard = listCard;
+    }
+
+    public Card getLastCard() {
+        System.out.println("size:"+listCard.size());
+        
+        return listCard.get(listCard.size()-1);
     }
 
 }
