@@ -51,7 +51,8 @@ public class MoveWasteToTableouControllerTest {
     @Test
     public void isMovedWasteCardToTableouTest(){
         moveWasteToTableouController.move(indexPalo);
-        assertEquals(1, board.getTableous().get(indexPalo).getListCard().size());
+        assertEquals(2, board.getTableous().get(indexPalo).getListCard().size());
+        assertEquals(2, board.getWaste().size());
     }
 
 }

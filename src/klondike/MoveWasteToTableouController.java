@@ -27,7 +27,10 @@ public class MoveWasteToTableouController {
         return tableouCard.isOtherColor(indexPalo,card);
     }
     public void move(int indexPalo) {
-        
+        Card lastWestCard=new Card();
+        lastWestCard=board.getWaste().get(board.getWaste().size()-1);
+        board.getTableous().get(indexPalo).getListCard().add(lastWestCard);
+        board.getWaste().remove(board.getWaste().size()-1);
     }
 
 }
