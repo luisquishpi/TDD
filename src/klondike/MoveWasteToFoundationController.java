@@ -13,7 +13,7 @@ public class MoveWasteToFoundationController {
         return foundationCard.isLow(indexPalo,card);
     }
     public boolean isLastFoundationCardVisible(int indexPalo) {
-        return true;
+        return foundationCard.isVisible();
     }
     public boolean isLastFoundationCardEqualColor(int indexPalo, Card card) {
         foundationCard=new Card();
