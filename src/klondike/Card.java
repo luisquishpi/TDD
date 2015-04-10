@@ -54,4 +54,8 @@ public class Card {
         return this.cardType == card.cardType;
     }
 
+    public boolean isHigh(int indexPalo, Card card) {
+        return this.getNumber()-1 == card.getNumber();
+    }
+
 }
