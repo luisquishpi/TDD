@@ -49,5 +49,9 @@ public class Card {
         return "Card[" + this.number + "," + this.visible + "," + this.cardType + "]";
     }
 
+    public boolean isEqual(int indexPalo, Card card) {
+        return this.cardType==card.cardType;
+    }
+
 
 }
