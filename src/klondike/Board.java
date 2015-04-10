@@ -18,10 +18,7 @@ public class Board {
     public List<Tableou> getTableous() {
         return tableous;
     }
-
-    public void setTableous(List<Tableou> tableous) {
-        this.tableous = tableous;
-    }
+    
     public Board() {
         deck = new ArrayList<Card>();
         waste = new ArrayList<Card>();
@@ -36,28 +33,25 @@ public class Board {
             tableous.get(i-1).getListCard().get(tableous.get(i-1).getListCard().size()-1).setVisible(true);
             deck.removeAll(subLista);
         }
-        
     }
-
     public void Fill52CardsInDeck() {
-        int numero = 1;
-        int iteracion = 1;
-        for (int i = 0; i < 52; i++) {
-            if (iteracion == 1)
-                deck.add(new Card(numero, false, CardType.CORAZON));
-            if (iteracion == 2)
-                deck.add(new Card(numero, false, CardType.DIAMENTE));
-            if (iteracion == 3)
-                deck.add(new Card(numero, false, CardType.PICA));
-            if (iteracion == 4)
-                deck.add(new Card(numero, false, CardType.TREBOL));
-            if (numero == 13) {
-                numero = 1;
-                iteracion++;
-            } else
-                numero++;
+        for (CardType cardType: CardType.values()) {
+            for (int i = 1; i <= 13; i++) {
+                deck.add(new Card(i, false, cardType));
+            }
         }
         Collections.shuffle(deck);
+    }
+    public int getTotalCardsInTableou() {
+        int total = 0;
+        for (int i = 0; i < NUMPALOSTABLEOU; i++) {
+            total+=tableous.get(i).getListCard().size();
+        }
+        return total;
+    }
+
+    public int getTotalCardsInDeck() {
+        return this.deck.size();
     }
 
     public boolean isEmptyWaste() {
@@ -72,36 +66,12 @@ public class Board {
         return deck;
     }
 
-    public void setDeck(List<Card> deck) {
-        this.deck = deck;
-    }
-
     public List<Card> getWaste() {
         return waste;
     }
 
-    public void setWaste(List<Card> waste) {
-        this.waste = waste;
-    }
-
     public List<Foundation> getFoundations() {
         return foundations;
-    }
-
-    public void setFoundations(List<Foundation> foundations) {
-        this.foundations = foundations;
-    }
-
-    public int getTotalCardsInTableou() {
-        int total = 0;
-        for (int i = 0; i < NUMPALOSTABLEOU; i++) {
-            total+=tableous.get(i).getListCard().size();
-        }
-        return total;
-    }
-
-    public int getTotalCardsInDeck() {
-        return this.deck.size();
     }
 
 }
