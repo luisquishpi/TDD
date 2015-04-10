@@ -26,7 +26,7 @@ public class MoveWasteToTableouControllerTest {
         board = new Board();
         board.getWaste().add(new Card(3,true,CardType.CORAZON));
         board.getWaste().add(new Card(8,true,CardType.PICA));
-        board.getWaste().add(new Card(9,true,CardType.TREBOL));
+        board.getWaste().add(new Card(9,true,CardType.CORAZON));
         listCard=new ArrayList<Card>();
         listCard.add(new Card(10,true,CardType.TREBOL));
         board.getTableous().add(new Tableou(new ArrayList<Card>(listCard)));
@@ -42,7 +42,7 @@ public class MoveWasteToTableouControllerTest {
     }
     @Test
     public void isLastTableouCardVisibleTest(){
-        assertTrue(moveWasteToTableouController.isLastTableouCardVisible());
+        assertTrue(moveWasteToTableouController.isLastTableouCardVisible(indexPalo));
     }
     @Test
     public void isLastTableouCardOtherColorTest(){

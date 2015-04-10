@@ -58,4 +58,9 @@ public class Card {
         return this.getNumber()-1 == card.getNumber();
     }
 
+    public boolean isOtherColor(int indexPalo, Card card) {
+        System.out.println("t1:"+this.cardType+" c2:"+card.cardType);
+        return this.cardType != card.cardType;
+    }
+
 }

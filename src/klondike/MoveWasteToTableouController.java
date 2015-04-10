@@ -6,6 +6,7 @@ public class MoveWasteToTableouController {
     Card tableouCard;
     public MoveWasteToTableouController(Board board) {
         this.setBoard(board);
+        tableouCard=new Card();
     }
     public Board getBoard() {
         return board;
@@ -14,15 +15,16 @@ public class MoveWasteToTableouController {
         this.board = board;
     }
     public boolean isLastTableouCardHighTest(int indexPalo, Card card) {
-        tableouCard=new Card();
         tableouCard=board.getTableous().get(indexPalo).getLastCard();
         return tableouCard.isHigh(indexPalo,card);
     }
-    public boolean isLastTableouCardVisible() {
+    public boolean isLastTableouCardVisible(int indexPalo) {
+        tableouCard=board.getTableous().get(indexPalo).getLastCard();
         return tableouCard.isVisible();
     }
-    public boolean isLastTableouCardOtherColor(int indexPalo, Card lastWasteCard) {
-        return true;
+    public boolean isLastTableouCardOtherColor(int indexPalo, Card card) {
+        tableouCard=board.getTableous().get(indexPalo).getLastCard();
+        return tableouCard.isOtherColor(indexPalo,card);
     }
     public void move(int indexPalo) {
         
