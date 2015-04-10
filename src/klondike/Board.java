@@ -31,10 +31,12 @@ public class Board {
 
     public void MoveFromDeckToTableouFirstTime() {
         for (int i = 1; i <= NUMPALOSTABLEOU; i++) {
-            tableous.add(new Tableou(deck.subList(deck.size() - i - 1, deck.size() - 1)));
+            List<Card> subLista=deck.subList(deck.size() - i - 1, deck.size() - 1);
+            tableous.add(new Tableou(new ArrayList<Card>(subLista)));
             tableous.get(i-1).getListCard().get(tableous.get(i-1).getListCard().size()-1).setVisible(true);
-            deck.removeAll(deck.subList(deck.size() - i - 1, deck.size() - 1));
+            deck.removeAll(subLista);
         }
+        
     }
 
     public void Fill52CardsInDeck() {
@@ -91,7 +93,10 @@ public class Board {
     }
 
     public int getTotalCardsInTableou() {
-        int total = 28;
+        int total = 0;
+        for (int i = 0; i < NUMPALOSTABLEOU; i++) {
+            total+=tableous.get(i).getListCard().size();
+        }
         return total;
     }
 
