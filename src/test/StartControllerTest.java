@@ -10,6 +10,7 @@ import org.junit.Test;
 public class StartControllerTest {
 
     StartController startController;
+
     Board board;
 
     @Before
@@ -20,22 +21,22 @@ public class StartControllerTest {
     }
 
     @Test
-    public void isEmptyWaste() {
+    public void isEmptyWasteTest() {
         assertTrue(startController.isEmptyWaste());
     }
 
     @Test
-    public void isEmptyFoundation() {
+    public void isEmptyFoundationTest() {
         assertTrue(startController.isEmptyFoundation());
     }
 
     @Test
-    public void is28CardsInTableou() {
+    public void is28CardsInTableouTest() {
         assertEquals(28, startController.getTotalCardsInTableou());
     }
 
     @Test
-    public void is24CardsInDeck() {
+    public void is24CardsInDeckTest() {
         assertEquals(24, startController.getTotalCardsInDeck());
     }
 
