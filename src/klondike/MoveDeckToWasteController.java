@@ -40,7 +40,7 @@ public class MoveDeckToWasteController {
     public void move(Card card) {
         waste.add(card);
         deck.remove(card);
-        waste.get(waste.size()).setVisible(true);
+        waste.get(waste.size()-1).setVisible(true);
         if(waste.size()>3)
         {
             deck.add(0, waste.get(0));
