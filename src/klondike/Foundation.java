@@ -19,8 +19,6 @@ public class Foundation {
     }
 
     public Card getLastCard() {
-        System.out.println("size:"+listCard.size());
-        
         return listCard.get(listCard.size()-1);
     }
 

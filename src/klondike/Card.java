@@ -40,8 +40,9 @@ public class Card {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
+
     public boolean isLow(int indexPalo, Card card) {
-        return this.getNumber()<card.getNumber();
+        return this.getNumber() == card.getNumber() - 1;
     }
 
     @Override
@@ -50,8 +51,7 @@ public class Card {
     }
 
     public boolean isEqual(int indexPalo, Card card) {
-        return this.cardType==card.cardType;
+        return this.cardType == card.cardType;
     }
-
 
 }

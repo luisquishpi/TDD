@@ -25,9 +25,9 @@ public class MoveWasteToFoundationControllerTest {
         board = new Board();
         board.getWaste().add(new Card(3,true,CardType.CORAZON));
         board.getWaste().add(new Card(8,true,CardType.PICA));
-        board.getWaste().add(new Card(11,true,CardType.TREBOL));
+        board.getWaste().add(new Card(2,true,CardType.TREBOL));
         List<Card> listCard=new ArrayList<Card>();
-        listCard.add(new Card(9,true,CardType.TREBOL));
+        listCard.add(new Card(1,true,CardType.TREBOL));
         board.getFoundations().add(new Foundation(new ArrayList<Card>(listCard)));
         lastWasteCard=new Card();
         lastWasteCard = board.getWaste().get(board.getWaste().size()-1);
@@ -36,16 +36,17 @@ public class MoveWasteToFoundationControllerTest {
     }
 
     @Test
-    public void isLastFoundationCardLow(){
+    public void isLastFoundationCardLowTest(){
         assertTrue(moveWasteToFoundationController.isLastFoundationCardLow(indexPalo,lastWasteCard));
     }
-   
-    public void isLastFoundationCardEqualColor(){
+    @Test
+    public void isLastFoundationCardEqualColorTest(){
         assertTrue(moveWasteToFoundationController.isLastFoundationCardEqualColor(indexPalo,lastWasteCard));
     }
-    public void isMovedWasteCardToFoundation(){
-        assertTrue(moveWasteToFoundationController.isMovedWasteCardToFoundation(indexPalo));
-        
+    @Test
+    public void isMovedWasteCardToFoundationTest(){
+        moveWasteToFoundationController.move(indexPalo);
+        assertEquals(2, board.getFoundations().get(indexPalo).getListCard().size());
     }
 
 }
