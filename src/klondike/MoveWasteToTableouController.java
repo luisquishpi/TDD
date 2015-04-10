@@ -19,7 +19,7 @@ public class MoveWasteToTableouController {
         return tableouCard.isHigh(indexPalo,card);
     }
     public boolean isLastTableouCardVisible() {
-        return true;
+        return tableouCard.isVisible();
     }
     public boolean isLastTableouCardOtherColor(int indexPalo, Card lastWasteCard) {
         return true;
