@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.*;
+import klondike.Board;
 import klondike.StartController;
 
 import org.junit.Before;
@@ -9,10 +10,13 @@ import org.junit.Test;
 public class StartControllerTest {
 
     StartController startController;
+    Board board;
 
     @Before
     public void beforeTest() {
-        startController = new StartController();
+        board = new Board();
+        board.startGame();
+        startController = new StartController(board);
     }
 
     @Test

@@ -4,9 +4,8 @@ package klondike;
 public class StartController {
 
     Board board;
-    public StartController(){
-        board=new Board();
-        board.startGame();
+    public StartController(Board board){
+        this.board=board;
     }
     public boolean isEmptyWaste() {
         return board.isEmptyWaste();
