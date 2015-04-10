@@ -17,34 +17,42 @@ import org.junit.Test;
 public class MoveWasteToFoundationControllerTest {
 
     MoveWasteToFoundationController moveWasteToFoundationController;
+
     Board board;
+
     Card lastWasteCard;
-    int indexPalo=0;
+
+    int indexPalo = 0;
+
     @Before
     public void before() {
         board = new Board();
-        board.getWaste().add(new Card(3,true,CardType.CORAZON));
-        board.getWaste().add(new Card(8,true,CardType.PICA));
-        board.getWaste().add(new Card(2,true,CardType.TREBOL));
-        List<Card> listCard=new ArrayList<Card>();
-        listCard.add(new Card(1,true,CardType.TREBOL));
+        board.getWaste().add(new Card(3, true, CardType.CORAZON));
+        board.getWaste().add(new Card(8, true, CardType.PICA));
+        board.getWaste().add(new Card(2, true, CardType.TREBOL));
+        List<Card> listCard = new ArrayList<Card>();
+        listCard.add(new Card(1, true, CardType.TREBOL));
         board.getFoundations().add(new Foundation(new ArrayList<Card>(listCard)));
-        lastWasteCard=new Card();
-        lastWasteCard = board.getWaste().get(board.getWaste().size()-1);
-        
+        lastWasteCard = new Card();
+        lastWasteCard = board.getWaste().get(board.getWaste().size() - 1);
+
         moveWasteToFoundationController = new MoveWasteToFoundationController(board);
     }
 
     @Test
-    public void isLastFoundationCardLowTest(){
-        assertTrue(moveWasteToFoundationController.isLastFoundationCardLow(indexPalo,lastWasteCard));
+    public void isLastFoundationCardLowTest() {
+        assertTrue(moveWasteToFoundationController
+                .isLastFoundationCardLow(indexPalo, lastWasteCard));
     }
+
     @Test
-    public void isLastFoundationCardEqualColorTest(){
-        assertTrue(moveWasteToFoundationController.isLastFoundationCardEqualColor(indexPalo,lastWasteCard));
+    public void isLastFoundationCardEqualColorTest() {
+        assertTrue(moveWasteToFoundationController.isLastFoundationCardEqualColor(indexPalo,
+                lastWasteCard));
     }
+
     @Test
-    public void isMovedWasteCardToFoundationTest(){
+    public void isMovedWasteCardToFoundationTest() {
         moveWasteToFoundationController.move(indexPalo);
         assertEquals(2, board.getFoundations().get(indexPalo).getListCard().size());
     }
