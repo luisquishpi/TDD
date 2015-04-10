@@ -38,9 +38,14 @@ public class MoveDeckToWasteController {
         }
     }
     public void move(Card card) {
-        if(waste.isEmpty()||waste.size()<3){
-            waste.add(waste.size(), card);
-            deck.remove(card);
+        waste.add(card);
+        deck.remove(card);
+        waste.get(waste.size()).setVisible(true);
+        if(waste.size()>3)
+        {
+            deck.add(0, waste.get(0));
+            deck.get(0).setVisible(false);
+            waste.remove(0);
         }
     }
    
